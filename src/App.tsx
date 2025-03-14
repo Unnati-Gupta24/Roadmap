@@ -7,7 +7,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { getRoadmap, getAvailableFields, type Roadmap } from "./data/roadmaps";
-import "./styles.css"; // Import the CSS file
+import "./styles.css"; 
 
 function App() {
   const [selectedField, setSelectedField] = useState("");
@@ -18,7 +18,6 @@ function App() {
     Array<{ id: number; style: React.CSSProperties }>
   >([]);
 
-  // Generate floating books
   useEffect(() => {
     const bookCount = 30;
     const newBooks = Array.from({ length: bookCount }, (_, i) => ({
@@ -45,7 +44,6 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Floating books */}
       {books.map((book) => (
         <div key={book.id} className="book" style={book.style}>
           <BookOpen />
