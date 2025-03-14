@@ -1,0 +1,286 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Animation for floating books */
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0vh) rotate(360deg);
+  }
+}
+
+/* Container with gradient background */
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #EEF2FF, #F3E8FF);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Book animation elements */
+.book {
+  position: absolute;
+  color: #4F46E5;
+  opacity: 0.15;
+  pointer-events: none;
+  animation: float 20s linear infinite;
+  z-index: 1;
+}
+
+/* Content container */
+.content-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Header styling */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 20;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #312E81;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #6B7280;
+}
+
+/* Field selector styling */
+.field-selector {
+  max-width: 32rem;
+  margin: 0 auto 3rem;
+  position: relative;
+  z-index: 50; /* Increased z-index to ensure dropdown appears above everything */
+}
+
+.selector-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  background: white;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 50;
+}
+
+.selector-button:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.selector-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #C7D2FE;
+}
+
+.dropdown-menu {
+  position: absolute;
+  width: 100%;
+  margin-top: 0.5rem;
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 100; /* Highest z-index to ensure visibility */
+  overflow: hidden;
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #374151;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #EEF2FF;
+}
+
+/* Roadmap content styling */
+.roadmap {
+  max-width: 48rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.roadmap-card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.roadmap-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.roadmap-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.roadmap-icon {
+  color: #4F46E5;
+  margin-right: 1rem;
+}
+
+.roadmap-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1F2937;
+}
+
+.roadmap-description {
+  color: #6B7280;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Section styling */
+.section {
+  border-left: 4px solid #4F46E5;
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin-bottom: 1rem;
+}
+
+/* Step styling */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.step-card {
+  background: #F9FAFB;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.step-card:hover {
+  background: #EEF2FF;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.step-icon {
+  color: #4F46E5;
+  margin-right: 0.75rem;
+}
+
+.step-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.step-description {
+  color: #6B7280;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.step-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.time-estimate {
+  display: flex;
+  align-items: center;
+  color: #6B7280;
+}
+
+.resources {
+  display: flex;
+  align-items: center;
+  color: #4F46E5;
+}
+
+.meta-icon {
+  margin-right: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .roadmap-card {
+    padding: 1.5rem;
+  }
+  
+  .step-meta {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* For chevron icon rotation */
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Transition for chevron */
+.transition-transform {
+  transition: transform 0.3s ease;
+}
