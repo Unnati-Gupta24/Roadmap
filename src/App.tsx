@@ -7,7 +7,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { getRoadmap, getAvailableFields, type Roadmap } from "./data/roadmaps";
-import "./styles.css"; 
+import "./styles.css";
 
 function App() {
   const [selectedField, setSelectedField] = useState("");
@@ -33,12 +33,33 @@ function App() {
     setBooks(newBooks);
   }, []);
 
+  useEffect(() => {
+    console.log("Available fields:", availableFields);
+  }, [availableFields]);
+
   const handleFieldSelect = (field: string) => {
     setSelectedField(field);
     setIsDropdownOpen(false);
-    const result = getRoadmap(field.toLowerCase());
+
+    const fieldMap: Record<string, string> = {
+      "Full Stack Development": "full-stack development",
+      "Machine Learning": "machine learning",
+      Cybersecurity: "cybersecurity",
+      "DevOps Engineering": "devops engineering",
+      "Blockchain Development": "blockchain development",
+      "Data Engineering": "data engineering",
+    };
+
+    const searchField = fieldMap[field] || field.toLowerCase();
+
+    console.log("Searching for roadmap with key:", searchField);
+
+    const result = getRoadmap(searchField);
     if (result) {
+      console.log("Roadmap found:", result.field);
       setRoadmap(result);
+    } else {
+      console.error(`No roadmap found for field: ${searchField}`);
     }
   };
 
@@ -154,3 +175,4 @@ function App() {
 }
 
 export default App;
+
